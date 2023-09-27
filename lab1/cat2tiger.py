@@ -9,7 +9,7 @@ import cv2
 
 #####################################################
 steps = 100  # 变换步数
-show_img = False  # 是否显示中间变形图像
+show_image = False  # 是否显示中间变形图像
 root_path = "/Users/lei/Desktop/CG/lab1"  # 项目根目录
 save_image_path = os.path.join(root_path, "result", "image")  # 输出图像目录
 save_video_path = os.path.join(root_path, "result", "video")  # 输出视频目录
@@ -26,8 +26,8 @@ def image2video(image_folder, fps=30):
     if not os.path.exists(save_video_path):
         os.makedirs(save_video_path, exist_ok=True)
 
-    image_list = [img for img in os.listdir(
-        image_folder) if img.endswith(".png")]
+    image_list = [image for image in os.listdir(
+        image_folder) if image.endswith(".png")]
     image_list = sorted(image_list, key=lambda x: int(
         x.split("_")[1].split(".")[0]))
 
@@ -62,20 +62,20 @@ def main():
         beta = i / steps       # 虎的比例
 
         # 按不同比例混合猫和虎的图像
-        merge_img = cv2.addWeighted(
+        merge_image = cv2.addWeighted(
             cat, alpha, tiger, beta, 0.0)  # 0.0表示gamma，即亮度，0表示不调整
 
-        if show_img:
-            cv2.imshow(f'cat2tiger_{i}', merge_img)
+        if show_image:
+            cv2.imshow(f'cat2tiger_{i}', merge_image)
 
         save_path = os.path.join(save_image_path, f'cat2tiger_{i}.png')
         # 保存图片
-        cv2.imwrite(save_path, merge_img)
+        cv2.imwrite(save_path, merge_image)
 
-        if show_img:
+        if show_image:
             cv2.waitKey(0)
 
-    if show_img:
+    if show_image:
         cv2.destroyAllWindows()
 
 
