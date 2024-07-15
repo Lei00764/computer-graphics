@@ -1,0 +1,3 @@
+/Users/lei/Desktop/CG/lab/lab2/build/CMakeFiles/Rasterizer.dir
+/Users/lei/Desktop/CG/lab/lab2/build/CMakeFiles/edit_cache.dir
+/Users/lei/Desktop/CG/lab/lab2/build/CMakeFiles/rebuild_cache.dir
